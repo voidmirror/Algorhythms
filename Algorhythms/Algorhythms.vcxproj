@@ -78,6 +78,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Dynamics.cpp" />
+    <ClCompile Include="TheMain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Dynamics.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
