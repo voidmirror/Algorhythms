@@ -4,6 +4,7 @@
 #include "Dynamics.h"
 
 int main() {
+	/*
 	List *head = 0;
 	srand(time(0));
 	for (int i = 0; i < 100; ++i)
@@ -12,4 +13,7 @@ int main() {
 	printList(head);
 
 	doubleList *dhead = 0;
+	*/
+
+
 }
