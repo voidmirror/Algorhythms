@@ -7,12 +7,12 @@ struct List {
 };
 
 struct doubleList {
-	char value;
+	int value;
 	doubleList* pointPrev;
 	doubleList* pointNext;
 };
 
-void add2List(List** head, char addval);
+void add2List(List** head, int addval);
 void printList(List* head);
 
 #endif
