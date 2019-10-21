@@ -3,6 +3,8 @@
 #include <ctime>
 #include "Dynamics.h"
 
+using namespace std;
+
 int main() {
 	/*
 	List *head = 0;
@@ -15,5 +17,17 @@ int main() {
 	doubleList *dhead = 0;
 	*/
 
+	int checkArrLength = 0;
+	int *checkArrLengthP = &checkArrLength;
 
+	Skip* skip = NULL;
+	for (int i = 0; i < 10; i++) {
+		fillSkipList(&skip, (rand() % 10));
+	}
+	printSkipList(skip);
+	
+	Skip** arr = createSkipListArr(3, skip, checkArrLengthP);
+
+	printSkipList(arr[2]);
+	cout << checkArrLength;
 }

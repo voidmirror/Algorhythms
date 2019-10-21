@@ -47,6 +47,7 @@ void add2DoubleList(doubleList** head, doubleList** tail, int addval) {
 	doubleList **pp = tail;
 	doubleList *newelem;
 
+	newelem = (doubleList*)malloc(sizeof(doubleList));
 	newelem->value = addval;
 	newelem->pointNext = NULL;
 
@@ -62,10 +63,10 @@ void add2DoubleList(doubleList** head, doubleList** tail, int addval) {
 	}
 }
 
-List** createSkipListArr(int lvls, List *head) {
+Skip** createSkipListArr(int lvls, Skip *head, int* checkArrLengthP) {
 	// lvls - number of levels
 
-	List **lvlarr = (List**)malloc(lvls * sizeof(List*));
+	Skip **lvlarr = (Skip**)malloc(lvls * sizeof(Skip*));
 	for (int i = 0; i < lvls; i++) {
 		lvlarr[i] = NULL;
 		//*(lvlarr + i) = NULL;
@@ -73,17 +74,55 @@ List** createSkipListArr(int lvls, List *head) {
 	lvlarr[0] = head;
 
 	int randomize;
-	List *elem = head, *listelem = NULL;
+	Skip *elem = head, *listelem = NULL;
 	for (int i = 1; i < lvls; i++) {
 		while (elem) {
 			randomize = rand() % 2;
 			if (randomize) {
-				List *newelem;
-				newelem = (List*)malloc(sizeof(List));
+				Skip *newelem;
+				newelem = (Skip*)malloc(sizeof(Skip));
 				newelem->point = NULL;
 				newelem->value = elem->value;
-
+				newelem->lowlvl = elem;
+				if (listelem) {
+					listelem->point = newelem;
+					listelem = listelem->point;
+				}
+				else {
+					lvlarr[i] = newelem;
+					//*(lvlarr + i) = newelem;
+					listelem = newelem;
+					(*checkArrLengthP)++;
+				}
 			}
+			elem = elem->point;
 		}
+		elem = lvlarr[i];
+		listelem = NULL;
 	}
+	return lvlarr;
+}
+
+void fillSkipList(Skip** head, int addval) {
+	Skip **pp = head;
+	Skip *newelem;
+	while (*pp) {
+		if (addval < (*head)->value)
+			break;
+		else
+			pp = &((*pp)->point);
+	}
+	newelem = (Skip*)malloc(sizeof(Skip));
+	newelem->value = addval;
+	newelem->point = *pp;
+	*pp = newelem;
+}
+
+void printSkipList(Skip* head) {
+	Skip* p = head;
+	while (p) {
+		cout << p->value << " ";
+		p = p->point;
+	}
+	cout << endl;
 }

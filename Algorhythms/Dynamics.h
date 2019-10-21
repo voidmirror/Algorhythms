@@ -12,7 +12,17 @@ struct doubleList {
 	doubleList* pointNext;
 };
 
+struct Skip {
+	int value;
+	Skip* point;
+	Skip* lowlvl;
+};
+
 void add2List(List** head, int addval);
 void printList(List* head);
+
+void fillSkipList(Skip** head, int addval);
+void printSkipList(Skip* head);
+Skip** createSkipListArr(int lvls, Skip *head, int* checkArrLength);
 
 #endif
