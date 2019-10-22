@@ -17,10 +17,15 @@ int main() {
 	doubleList *dhead = 0;
 	*/
 
+	/*
+		srand(time(0));			// optional ============================================
+	*/
+
 	int checkArrLength = 0;
 	int *checkArrLengthP = &checkArrLength;
 
 	Skip* skip = NULL;
+	Skip* resultSkip;
 	for (int i = 0; i < 10; i++) {
 		fillSkipList(&skip, /*(rand() % 10)*/ i);
 	}
@@ -31,5 +36,7 @@ int main() {
 	printSkipList(arr[2]);
 	cout << checkArrLength << endl;
 
-	findInSkip(4, 3, arr);
+	//findInSkip(4, 3, arr);
+	resultSkip = findInSkip(0, 3, arr);
+	cout << "result: " << resultSkip->value << endl;
 }

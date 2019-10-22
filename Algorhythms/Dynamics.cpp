@@ -27,22 +27,6 @@ void printList(List* head) {
 	cout << endl;
 }
 
-//void add2DoubleList(doubleList** head, char addval) {
-//	doubleList **pp = head;
-//	doubleList *newelem;
-//	while (*pp) {
-//		if (addval < (*head)->value)
-//			break;
-//		else
-//			pp = &((*pp)->pointNext);
-//	}
-//	newelem = (doubleList*)malloc(sizeof(doubleList));
-//	newelem->value = addval;
-//	newelem->pointNext = *pp;
-//	newelem->pointPrev = (*pp)->pointPrev;
-//	*pp = newelem;
-//}
-
 void add2DoubleList(doubleList** head, doubleList** tail, int addval) {
 	doubleList **pp = tail;
 	doubleList *newelem;
@@ -127,24 +111,12 @@ void printSkipList(Skip* head) {
 	cout << endl;
 }
 
-void findInSkip(int val, int lvls, Skip **lvlarr) {
+Skip* findInSkip(int val, int lvls, Skip **lvlarr) {
 	Skip *elem, *prev = NULL;
-	int l = lvls, pos = 1;
+	int l = lvls;
 	elem = lvlarr[l - 1];
 
 	while ((elem) && (elem->value != val)) {
-		/*if (elem->value > val) {
-			if (!prev) {
-
-			}
-		}
-		else {
-			prev = elem;
-			elem = elem->point;
-			while (!elem && (l < lvls)) {
-
-			}
-		}*/
 
 		if (elem->value > val || !(elem->point)) {
 			prev = prev->lowlvl;
@@ -154,9 +126,7 @@ void findInSkip(int val, int lvls, Skip **lvlarr) {
 			prev = elem;
 			elem = elem->point;
 		}
-
-
-		//l--;		// (!)
 	}
 	cout << "found: " << elem->value << endl;
+	return elem;
 }

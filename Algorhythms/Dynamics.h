@@ -24,6 +24,6 @@ void printList(List* head);
 void fillSkipList(Skip** head, int addval);
 void printSkipList(Skip* head);
 Skip** createSkipListArr(int lvls, Skip *head, int* checkArrLength);
-void findInSkip(int val, int lvls, Skip **lvlarr);
+Skip* findInSkip(int val, int lvls, Skip **lvlarr);
 
 #endif
