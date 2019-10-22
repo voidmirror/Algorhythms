@@ -22,12 +22,14 @@ int main() {
 
 	Skip* skip = NULL;
 	for (int i = 0; i < 10; i++) {
-		fillSkipList(&skip, (rand() % 10));
+		fillSkipList(&skip, /*(rand() % 10)*/ i);
 	}
 	printSkipList(skip);
 	
 	Skip** arr = createSkipListArr(3, skip, checkArrLengthP);
 
 	printSkipList(arr[2]);
-	cout << checkArrLength;
+	cout << checkArrLength << endl;
+
+	findInSkip(4, 3, arr);
 }
