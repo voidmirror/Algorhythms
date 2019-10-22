@@ -79,10 +79,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Dynamics.cpp" />
+    <ClCompile Include="Scripts.cpp" />
     <ClCompile Include="TheMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dynamics.h" />
+    <ClInclude Include="Scripts.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -126,3 +126,28 @@ void printSkipList(Skip* head) {
 	}
 	cout << endl;
 }
+
+void findInSkip(int val, int lvls, Skip **lvlarr) {
+	Skip *elem, *prev = NULL;
+	int l = 0;
+	elem = lvlarr[l];
+
+	while (l && (elem) && (elem->value != val)) {
+		/*if (elem->value > val) {
+			if (!prev) {
+
+			}
+		}
+		else {
+			prev = elem;
+			elem = elem->point;
+			while (!elem && (l < lvls)) {
+
+			}
+		}*/
+
+		if (elem->value > val) {
+
+		}
+	}
+}
